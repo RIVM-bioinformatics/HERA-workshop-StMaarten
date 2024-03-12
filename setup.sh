@@ -24,7 +24,7 @@ echo "Conda is installed as well as some fundamentals"
 echo "Installing and preparing source material, this may take a while..."
 
 # make a dedicated environment for every course section
-mamba create -n pipeline_env viroconstrictor -c bioconda -y > /dev/null 2>&1
+mamba create -n pipeline_env viroconstrictor igv -c bioconda -y > /dev/null 2>&1
 
 pip install igv-jupyter --quiet > /dev/null 2>&1
 
