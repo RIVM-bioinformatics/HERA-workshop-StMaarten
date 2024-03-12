@@ -11,14 +11,17 @@ mkdir -p pipeline_output
 unzip samples_${GROUP}.zip -d input_files > /dev/null 2>&1 && rm samples_${GROUP}.zip
 tar xzf data_${GROUP}.tar.gz && rm data_${GROUP}.tar.gz
 
-rm -rf pipeline_output_wrong/results pipeline_output_wrong/Runinfomation.pdf pipeline_output_wrong/data/Virus~sars-cov-2/RefID~MN908947.3/alignment pipeline_output_wrong/data/Virus~sars-cov-2/RefID~MN908947.3/consensus
-rm -rf pipeline_output_correct/results
+rm -rf pipeline_output_wrong/.snakemake
+rm -rf pipeline_output_correct/.snakemake
+
+rm -rf pipeline_output_wrong/results pipeline_output_wrong/Runinfomation.pdf pipeline_output_wrong/data/Virus~sars-cov-2/RefID~MN908947.3/alignment pipeline_output_wrong/data/Virus~sars-cov-2/RefID~MN908947.3/consensus pipeline_output_wrong/*.log
+rm -rf pipeline_output_correct/results pipeline_output_correct/Runinfomation.pdf pipeline_output_correct/*.log
 
 rm -rf samples_${GROUP}.zip data_${GROUP}.tar.gz
 
 ## install miniconda and get some basic tools
 wget -q "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-bash Miniforge3-$(uname)-$(uname -m).sh -b -f > /dev/null 2>&1
+bash Miniforge3-$(uname)-$(uname -m).sh -f
 rm Miniforge3-$(uname)-$(uname -m).sh
 
 # setup the necessary channels
